@@ -40,8 +40,8 @@ body.light-theme {
 }
 
 .header-info {
-	margin-left: auto;
     position: relative;
+    margin-left: auto;
 }
 
 .nav-list {
@@ -565,7 +565,7 @@ input.light-theme {
 
 @media (max-width: 768px) {
     .container {
-        max-width: 650px;
+        max-width: 550px;
     }
     .burger {
         display: block;
@@ -613,6 +613,12 @@ input.light-theme {
     h1 {
         font-size: 32px;
     }
+    .header-info {
+        margin-left: 300px;
+    }
+    #menu {
+        right: -175px;
+    }
     .p-hero {
         font-size: 20px;
     }
@@ -627,5 +633,95 @@ input.light-theme {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+    }
+    .contacts {
+        height: 450px;
+    }
+    .contacts-section {
+        width: 400px;
+        height: 380px;
+    }
+
+    .contacts-section textarea {
+        width: 400px;
+        height: 80px;
+    }
+    .contacts-section input {
+        width: 400px;
+        height: 40px;
+    }
+    .footer-link {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        max-width: 320px;
+    }
+    .promo {
+        min-height: 910px;
+        padding-top: 20px;
+        background: url('img/bg-mini.jpg') center center/cover no-repeat;
+    }
+    .promo.light-theme {
+        background: url('img/bg-light-mini.jpg') center center/cover no-repeat;
+    }
+    .logo {
+        padding-left: 0;
+    }
+    .header-info {
+        margin-left: 100px;
+    }
+    .theme {
+        left: 85px;
+    }
+    #hero {
+        width: 320px;
+        left: 0;
+        top: 400px;
+    }
+    .button-block {
+        flex-wrap: wrap;
+        margin: 0 5px;
+    }
+    .button2 {
+        width: 143px;
+    }
+    .line {
+        flex-wrap: wrap;
+    }
+    .line img {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .price-cards {
+        width: 320px;
+    }
+    .contacts {
+        background: url('img/contacts-mini.jpg') center center/cover no-repeat;
+        height: 700px;
+        position: relative;
+    }
+    
+    .contacts.light-theme {
+        background: url('img/contacts-light-mini.jpg')  center center/cover no-repeat;
+    }
+    .contacts {
+        height: 400px;
+    }
+    .contacts-section {
+        width: 320px;
+        height: 380px;
+        top: 15px;
+        right: -3px;
+    }
+    .contacts-section textarea {
+        width: 310px;
+        height: 60px;
+    }
+    .contacts-section input {
+        width: 310px;
+        height: 30px;
     }
 }
