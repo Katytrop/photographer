@@ -119,10 +119,27 @@
                 <h2>Video</h2>
             </div>
             <div class="video__wrapper">
-                <img src="img/video-player.jpg" alt="video">
+                <video src="video/video.mp4" poster="img/video-cover.jpg"></video>
                 <svg class="video__play">
                     <use xlink:href="icons/sprite.svg#Play_hover"></use>
                 </svg>
+                <div class="video__controls">
+                    <div class="video__fullscreen">
+                        <svg>
+                            <use xlink:href="icons/sprite-video.svg#full-screen"></use>
+                        </svg>
+                    </div>
+                    <div class="video__volume">
+                        <svg>
+                            <use xlink:href="icons/sprite-video.svg#volume"></use>
+                        </svg>
+                        <input class="video__range" type="range" name="volume" min="0" max="1" step="0.05" value="1">
+                    </div>
+                    <div class="video__progressbar">
+                        <div class="video__progressfill"></div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </section>
