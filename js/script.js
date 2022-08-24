@@ -1,4 +1,6 @@
 'use sctict';
+import i18Obj from './translate.js';
+
 window.addEventListener('DOMContentLoaded', () => {
     // btn up
     const btnUp = document.querySelector('.pageup');
@@ -86,5 +88,31 @@ window.addEventListener('DOMContentLoaded', () => {
         progressfill.style.width = `${progressLine}%`;
     }
     video.addEventListener('timeupdate',moveLineProgress);
+
+    // translate
+    const ruLang = document.querySelector('.ru');
+    const enLang = document.querySelector('.en');
+    const langElements = document.querySelectorAll('[data-i18]');
+
+    const getTranslate = (ru) => {
+    langElements.forEach (item => {
+        item.textContent = i18Obj['ru'][item.dataset.i18];
+        enLang.classList.remove('active_lang');
+        ruLang.classList.add('active_lang');
+    });
+    };
+    ruLang.addEventListener('click', getTranslate);
+
+    const getTranslate2 = (en) => {
+    langElements.forEach(item => {
+        item.textContent = i18Obj['en'][item.dataset.i18];
+        enLang.classList.add('active_lang');
+        ruLang.classList.remove('active_lang');
+    });
+    };
+    enLang.addEventListener('click', getTranslate2);
+
+    
+
 
 });
