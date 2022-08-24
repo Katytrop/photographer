@@ -1,0 +1,100 @@
+.video
+	padding-top: 115px
+	&__wrapper
+		width: 100%
+		margin-top: 70px
+		position: relative
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		padding: 0 20px	
+		video
+			width: 100%
+			height: auto	
+	&__controls
+		width: 100%
+		display: none
+		margin-top: -20px
+		position: relative
+		&.active
+			display: flex
+	&__progressbar
+		width: 99%
+		height: 15px
+		background: rgba(0, 0, 0, 0.5)
+		border: 1px solid $gold
+		margin-top: 3px
+	&__progressfill
+		background: $gold
+		width: 0%
+		height: 13px
+	&__fullscreen
+		svg
+			width: 20px
+			height: 20px
+			fill: #fff
+			stroke: #fff
+			&:hover
+				fill: $gold
+	&__volume
+		position: absolute
+		bottom: 35px
+		left: 0
+		display: flex
+		align-items: center
+		height: 10px
+		border-radius: 10px
+		&:hover .video__range
+			display: block
+		svg
+			width: 20px
+			height: 20px
+			fill: #fff
+			&:hover
+				fill: $gold
+		input
+			display: none
+			-webkit-appearance: none
+			-moz-appearance: none
+			appearance: none
+			border-radius: 10px
+			margin-left: 5px
+		input[type=range]::-webkit-slider-runnable-track
+			height: 10px
+			border-radius: 10px
+			background-color: rgba(255, 255, 255, 0.8)
+		input[type=range]::-webkit-slider-thumb
+			background: $gold
+			border-radius: 10px/100%
+			cursor: pointer
+			height: 15px
+			width: 15px
+			-webkit-appearance: none
+			margin-top: -4px
+		input[type=range]::-moz-range-track
+			height: 10px
+			border-radius: 10px
+			background-color: rgba(255, 255, 255, 0.8)
+		input[type=range]::-moz-range-thumb
+			background: $gold
+			border-radius: 10px/100%
+			cursor: pointer
+			height: 15px
+			width: 15px
+			-webkit-appearance: none
+			margin-top: -4px
+
+
+	&__play
+		margin: auto
+		position: absolute
+		fill: #fff
+		width: 120px
+		height: 120px
+		cursor: pointer
+		display: block
+		&:hover
+			fill: $gold
+			width: 100px
+			height: 100px
