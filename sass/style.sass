@@ -27,9 +27,9 @@ img
 
 // burger
 .burger
-	//position: fixed
-	//top: 20px
-	//right: 50px
+	position: absolute
+	top: 40px
+	right: 80px
 	height: 30px
 	display: none
 	flex-direction: column
@@ -39,6 +39,7 @@ img
 	margin-left: 30px
 	span
 		display: block
+		position: absolute
 		width: 50px
 		height: 2px
 		background: #fff
@@ -53,19 +54,9 @@ img
 		&.active
 			transform: rotate(-45deg)
 			top: 0
-	span.long 
+	span.middle 
 		&.active
 			display: none
-.menu__overlay
-	position: fixed
-	top: 0
-	left: 0
-	width: 100%
-	height: 0%
-	background-color: #fff
-	opacity: 0.75
-	&.active
-		height: 100%
 
 .pageup
 	position: fixed

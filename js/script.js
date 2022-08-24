@@ -185,6 +185,36 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // burger
+    const burger = document.querySelector('.burger'),
+          overlay = document.querySelector('.promo__overlay'),
+          firstLine = document.querySelector('.first'),
+          lastLine = document.querySelector('.last'),
+          middleLine = document.querySelector('.middle'),
+          menu = document.querySelector('.promo__nav');
 
+    function openMenu() {
+        menu.classList.add('active');
+        overlay.classList.add('active');
+        firstLine.classList.add('active');
+        lastLine.classList.add('active');
+        middleLine.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        firstLine.classList.remove('active');
+        lastLine.classList.remove('active');
+        middleLine.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', openMenu);
+    menu.addEventListener("click", function(e) {
+        if((e.target) && (e.target.nodeName == "UL" || e.target.nodeName == "LI" ||  e.target.nodeName == "A" || e.target.classList.contains('promo__overlay'))) {
+            closeMenu();
+        }
+    });
 
 });
