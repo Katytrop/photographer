@@ -112,7 +112,79 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     enLang.addEventListener('click', getTranslate2);
 
+    // FORMA // 
+
+    const forms = document.querySelectorAll('form');
+    const modal = document.querySelector('.modal');
+    const message = {
+        loading: "icons/spinner.svg",
+        success: "Спасибо, мы скоро с вами свяжемя!",
+        failure: "Что то пошло не так..."
+    };
+
+    function openModal () {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // убираем скролл
+    } 
+    document.querySelector('.btn_contacts').addEventListener('click', openModal);
+
+    function closeModal () {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
     
+    modal.addEventListener('click', (event) => { // нажатие на темную область
+        if (event.target === modal || event.target.getAttribute('data-close') == '') {
+            closeModal();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.code === "Escape" && modal.classList.contains('show')) { //если нажимаем esc И если модалка открыта
+            closeModal();
+        }
+    });
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement('img'); // создаем ответ пользователю
+            statusMessage.src = message.loading;
+            statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;`; 
+            form.insertAdjacentElement('afterend', statusMessage); // добавляем в конец формы
+
+            const formData = new FormData(form); // всегда прописывать у формы name
+
+            const object = {}; // переводим формдату в формат json
+            formData.forEach(function(value, key) {
+                object[key] = value;
+            });
+
+            fetch('server.php', {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(object)
+            })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+                openModal();
+                statusMessage.remove();
+            }).catch(() => {
+            }).finally(() => {
+                form.reset(); // очистить инпуты после заполнения и отправки
+            });
+        });
+    }
+
 
 
 });
