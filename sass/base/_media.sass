@@ -82,12 +82,31 @@
 		background-position-x: 25%
 		&__nav
 			display: none
+			&.active
+				display: flex
+		&__menu
+			position: absolute
+			top: 0
+			right: 0
+			width: 50%
+			height: 100vh
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			gap: 20px
+			background: #000
 		&__wrapper
 			margin-left: 10px
 			width: 330px
 			margin-top: 100px
 		&__descr
 			line-height: 24px
+		&__lang 
+			margin-left: 30px
+	.header
+		&__wrapper
+			width: 91%
+			justify-content: flex-start
 	h1
 		font-size: 33px
 		font-weight: 400

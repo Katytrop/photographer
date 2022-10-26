@@ -185,6 +185,78 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // burger
+    const burger = document.querySelector('.burger'),
+          overlay = document.querySelector('.promo__overlay'),
+          firstLine = document.querySelector('.first'),
+          lastLine = document.querySelector('.last'),
+          middleLine = document.querySelector('.middle'),
+          menu = document.querySelector('.promo__nav');
 
+    function openMenu() {
+        menu.classList.add('active');
+        overlay.classList.add('active');
+        firstLine.classList.add('active');
+        lastLine.classList.add('active');
+        middleLine.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        firstLine.classList.remove('active');
+        lastLine.classList.remove('active');
+        middleLine.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', openMenu);
+    menu.addEventListener("click", function(e) {
+        if((e.target) && (e.target.nodeName == "UL" || e.target.nodeName == "LI" ||  e.target.nodeName == "A" || e.target.classList.contains('promo__overlay'))) {
+            closeMenu();
+        }
+    });
 
 });
+
+// scroll 
+let animItems = document.querySelectorAll('.anim-items');
+
+if (animItems.length > 0) {
+    window.addEventListener('scroll', animScroll)
+
+    function animScroll() {
+        for (let index = 0; index < animItems.length; index++) {
+            const animItem = animItems[index];
+            const animItemHeight = animItem.offsetHeight;
+            const animItemOffset = offset(animItem).top;
+            const animStart = 4;
+
+            let animItemPoint = window.innerHeight - animItemHeight / animStart;
+            if(animItemHeight > window.innerHeight) {
+                animItemPoint = window.innerHeight - window.innerHeight / animStart;
+            }
+
+            if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+                animItem.classList.add('active');
+            } else {
+                if(!animItem.classList.contains('anim-nohide')) { // убираем анимаию при возвращении назад
+                    animItem.classList.remove('active');
+                }
+            }
+            
+        }
+    }
+
+    function offset(el) {
+        const rect = el.getBoundingClientRect(),
+              scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+              scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft}
+    }
+
+    setTimeout(() => {
+        animScroll();
+    }, 300)
+    
+}

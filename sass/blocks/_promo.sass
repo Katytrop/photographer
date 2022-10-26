@@ -8,6 +8,7 @@
 		display: flex
 		justify-content: space-between
 		padding: 0 30px
+		z-index: 2
 	&__link
 		&.active
 			a
@@ -19,9 +20,27 @@
 		margin-top: 180px
 		margin-left: 80px
 		width: 490px
+	&__overlay
+		position: fixed
+		top: 0
+		left: 0
+		width: 50%
+		height: 0%
+		background-color: #fff
+		opacity: 0.75
+		z-index: 1
+		&.active
+			height: 100%
 	&__descr
 		line-height: 40px
 		margin-top: 30px
+		transform: translate(0px, 120%)
+		opacity: 0
+		transition: all 0.8s ease 0s
+		&.active
+			transform: translate(0px, 0%)
+			opacity: 1
+			transition: all 0.8s ease 0.5s
 	&__logo
 		svg
 			fill: #fff
@@ -33,7 +52,6 @@
 	color: $gold
 
 .header
-	position: relative
 	height: 90px
 	padding: 20px
 	padding-top: 13px
@@ -47,3 +65,9 @@ h1
 	font-family: 'Merriweather'
 	font-weight: 700
 	font-size: 60px
+	transform: translate(0px, 120%)
+	opacity: 0
+	transition: all 0.8s ease 0s
+h1.active
+	opacity: 1
+	transform: translate(0px, 0px)
