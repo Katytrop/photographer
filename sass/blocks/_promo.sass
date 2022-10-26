@@ -34,6 +34,13 @@
 	&__descr
 		line-height: 40px
 		margin-top: 30px
+		transform: translate(0px, 120%)
+		opacity: 0
+		transition: all 0.8s ease 0s
+		&.active
+			transform: translate(0px, 0%)
+			opacity: 1
+			transition: all 0.8s ease 0.5s
 	&__logo
 		svg
 			fill: #fff
@@ -58,3 +65,9 @@ h1
 	font-family: 'Merriweather'
 	font-weight: 700
 	font-size: 60px
+	transform: translate(0px, 120%)
+	opacity: 0
+	transition: all 0.8s ease 0s
+h1.active
+	opacity: 1
+	transform: translate(0px, 0px)

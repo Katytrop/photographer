@@ -9,11 +9,32 @@
 		width: 320px
 		text-align: center
 		padding: 0 10px
+		&.active
+			& .skills__img
+				transform: scale(1)
+			& .skills__item_title
+				transform: translate(0px, 0%)
+				opacity: 1
+				transition: all 0.8s ease 0.6s
+			& .skills__item_descr
+				transform: translate(0px, 0%)
+				opacity: 1
+				transition: all 0.8s ease 0.6s
+
 		&_title
 			font-weight: 700
 			margin-top: 60px
+			transform: translate(0px, 50%)
+			opacity: 0
+			transition: all 0.3s ease 0s
 		&_descr
 			margin-top: 25px
 			line-height: 36px
 			font-size: 18px
+			transform: translate(0px, 50%)
+			opacity: 0
+			transition: all 0.3s ease 0s
+	&__img
+		transform: scale(0)
+		transition: all 0.8s ease 0s
 		

@@ -13,6 +13,17 @@
 		border: 1px solid $gold
 		text-align: center
 		padding: 40px 90px	
+		transform: translate(0px, -120%)
+		opacity: 0
+		transition: all 0.8s ease 0.6s
+		&.active
+			transform: translate(0px, 0px)
+			opacity: 1
+			transition: all 0.8s ease 0.8s
+			&:nth-child(2)
+				transition: all 0.8s ease 1s
+			&:nth-child(3)
+				transition: all 0.8s ease 1.2s
 		&_title
 			font-family: 'Merriweather'
 			font-weight: 700
